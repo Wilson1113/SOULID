@@ -1,14 +1,14 @@
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOULID: Blockchain Identity</title>
+<title>SOULID: Divine Blockchain Identity</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Orbitron:wght@400;700&display=swap');
 
   :root {
     --primary-color: #00ffff;
     --secondary-color: #ff00ff;
-    --background-color: #0c0c0c;
+    --background-color: #0a0a20;
     --text-color: #e0e0ff;
   }
 
@@ -30,7 +30,7 @@
   }
 
   header {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(10, 10, 32, 0.8);
     backdrop-filter: blur(10px);
     padding: 20px 0;
     position: fixed;
@@ -210,7 +210,7 @@
     line-height: 1.6;
   }
 
-  /* Updated styles for the 3D holographic card with enhanced light effects */
+  /* Updated styles for the 3D holographic card */
   .hologram-container {
     position: absolute;
     top: 50px;
@@ -221,8 +221,8 @@
   }
 
   .card-container {
-    width: 350px;
-    height: 500px;
+    width: 300px;
+    height: 450px;
     transform-style: preserve-3d;
     animation: float 6s ease-in-out infinite, rotate 20s infinite linear;
   }
@@ -243,32 +243,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px;
     box-sizing: border-box;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
-    border: 3px solid var(--primary-color);
-    box-shadow: 
-      0 0 30px rgba(0, 255, 255, 0.7),
-      0 0 60px rgba(255, 0, 255, 0.5),
-      0 0 90px rgba(0, 255, 255, 0.3);
-    overflow: hidden;
-  }
-
-  .card-face::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      to bottom right,
-      rgba(255, 255, 255, 0.3) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    transform: rotate(-45deg);
-    pointer-events: none;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
   }
 
   .card-face.front {
@@ -282,75 +262,10 @@
   .card-header, .card-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-  }
-
-  .card-header {
-    border-bottom: 2px solid rgba(0, 255, 255, 0.5);
-    padding-bottom: 15px;
-  }
-
-  .card-footer {
-    border-top: 2px solid rgba(0, 255, 255, 0.5);
-    padding-top: 15px;
   }
 
   .card-content {
     text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-
-  .card-face h2 {
-    font-size: 2.5em;
-    margin: 0;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-  }
-
-  .card-face p {
-    font-size: 1.2em;
-    margin: 10px 0;
-    color: var(--text-color);
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-  }
-
-  .card-face ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px 0;
-    text-align: left;
-  }
-
-  .card-face li {
-    margin-bottom: 10px;
-    font-size: 1.1em;
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-  }
-
-  .card-face li::before {
-    content: '✧';
-    color: var(--primary-color);
-    margin-right: 10px;
-    font-size: 1.2em;
-    text-shadow: 0 0 10px var(--primary-color);
-  }
-
-  .card-icon {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    text-shadow: 0 0 20px var(--primary-color);
   }
 
   @keyframes float {
@@ -363,8 +278,8 @@
     100% { transform: rotateY(360deg); }
   }
 
-  /* Enhanced holographic effect with light flares */
-  .card::before, .card::after {
+  /* Enhanced holographic effect */
+  .card::before {
     content: '';
     position: absolute;
     top: -5px;
@@ -382,26 +297,9 @@
     animation: holo-shine 5s linear infinite;
   }
 
-  .card::after {
-    filter: blur(40px);
-    opacity: 0.5;
-    animation: holo-shine 7s linear infinite reverse;
-  }
-
   @keyframes holo-shine {
-    0% { filter: hue-rotate(0deg) blur(20px); }
-    100% { filter: hue-rotate(360deg) blur(20px); }
-  }
-
-  /* Light flare effect */
-  .light-flare {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 70%);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
   }
 
   /* 3D environment effect */
@@ -462,12 +360,10 @@
   </div>
   
   <div id="particles-js"></div>
-
-  
   <header>
     <div class="container header-content">
-      <div class="logo">SOULID</div>
-      <button class="connect-wallet" >Connect Wallet</button>
+      <div class="logo">GODID</div>
+      <button class="connect-wallet">Connect Wallet</button>
     </div>
   </header>
   
@@ -483,10 +379,8 @@
                 <span>Divine Identity</span>
               </div>
               <div class="card-content">
-                <div class="card-icon">☥</div>
                 <h2>Crypto Sage</h2>
                 <p>Blockchain Veteran</p>
-                <p>Level: Celestial</p>
               </div>
               <div class="card-footer">
                 <span>Since: 2017</span>
@@ -495,7 +389,7 @@
             </div>
             <div class="card-face back">
               <div class="card-header">
-                <span>Divine Achievements</span>
+                <span>Achievements</span>
               </div>
               <div class="card-content">
                 <ul>
@@ -503,17 +397,14 @@
                   <li>NFT Collector</li>
                   <li>DAO Contributor</li>
                   <li>Ethereum Developer</li>
-                  <li>Crypto Oracle</li>
                 </ul>
               </div>
               <div class="card-footer">
                 <span>Rank: Celestial</span>
-                <span>XP: 9999</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="light-flare"></div>
       </div>
       <div class="hero-content container">
         <h1>GODID: Divine Blockchain Identity</h1>
@@ -636,46 +527,6 @@
 
     document.querySelector('.connect-wallet').addEventListener('click', function() {
       window.location.href = "connect.html";
-    });
-
-    // 3D mouse move effect with light flare
-    const card = document.querySelector('.card-container');
-    const lightFlare = document.querySelector('.light-flare');
-
-    document.addEventListener('mousemove', function(e) {
-      const depth = 5; // Adjust for more or less depth
-      const moveX = (e.clientX - window.innerWidth / 2) / depth;
-      const moveY = (e.clientY - window.innerHeight / 2) / depth;
-      
-      document.querySelector('.hero-content').style.transform = 
-        `translate3d(${moveX}px, ${moveY}px, 0) rotateX(${-moveY / 10}deg) rotateY(${moveX / 10}deg)`;
-      
-      document.querySelectorAll('.feature').forEach(feature => {
-        const featureDepth = Math.random() * 5 + 5; // Random depth for each feature
-        feature.style.transform = 
-          `translate3d(${moveX / featureDepth}px, ${moveY / featureDepth}px, 20px)`;
-      });
-
-      // Light flare effect
-      const cardRect = card.getBoundingClientRect();
-      const cardCenterX = cardRect.left + cardRect.width / 2;
-      const cardCenterY = cardRect.top + cardRect.height / 2;
-
-      const angle = Math.atan2(e.clientY - cardCenterY, e.clientX - cardCenterX);
-      const distance = Math.sqrt(Math.pow(e.clientX - cardCenterX, 2) + Math.pow(e.clientY - cardCenterY, 2));
-      const maxDistance = Math.sqrt(Math.pow(cardRect.width / 2, 2) + Math.pow(cardRect.height / 2, 2));
-
-      if (distance < maxDistance) {
-        const x = Math.cos(angle) * distance + cardRect.width / 2 - 50;
-        const y = Math.sin(angle) * distance + cardRect.height / 2 - 50;
-        const opacity = 1 - distance / maxDistance;
-
-        lightFlare.style.left = `${x}px`;
-        lightFlare.style.top = `${y}px`;
-        lightFlare.style.opacity = opacity;
-      } else {
-        lightFlare.style.opacity = 0;
-      }
     });
   </script>
 </body>
