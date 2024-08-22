@@ -1,0 +1,312 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOULID - Blockchain Identity Profile</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Orbitron:wght@400;700&display=swap');
+
+  :root {
+    --neon-blue: #00ffff;
+    --neon-pink: #ff00ff;
+    --dark-bg: #0c0c0c;
+  }
+
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--dark-bg);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 800px;
+    width: 100%;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  header {
+    text-align: center;
+    position: relative;
+  }
+
+  header h1 {
+    font-size: 5rem;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(255, 0, 255, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+  }
+
+  .cyberpunk-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .cyberpunk-grid line {
+    stroke: var(--neon-blue);
+    stroke-width: 0.5;
+  }
+
+  .wallet-container {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+
+  .wallet-container h2{
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .wallet-options {
+    display: block;
+    margin-top: 2rem;
+  }
+
+  .wallet-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .wallet-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .wallet-option img {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+  }
+
+  .wallet-option svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+  }
+
+  .wallet-option span {
+    flex-grow: 1;
+    text-align: left;
+  }
+
+</style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <svg class="cyberpunk-grid" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="100" y2="0" />
+        <line x1="0" y1="0" x2="0" y2="100" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+  </svg>
+
+  <div class="container">
+    <header>
+      <h1>SOULID</h1>
+    </header>
+
+    <main>
+      <div id="connect-wallet" class="wallet-container">
+        <h2>CONNECT WALLET</h2>
+          <div class="wallet-options">
+            <div class="wallet-option" data-wallet="phantom">
+              <svg viewBox="0 0 593 493" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M70.055 493c75.549 0 132.325-65.703 166.208-117.622-4.121 11.487-6.411 22.973-6.411 34 0 30.325 17.4 51.919 51.74 51.919 47.161 0 97.527-41.351 123.626-85.919-1.832 6.433-2.747 12.406-2.747 17.919 0 21.135 11.904 34.46 36.172 34.46 76.465 0 153.387-135.541 153.387-254.081C592.03 81.324 545.327 0 428.112 0 222.069 0 0 251.784 0 414.432 0 478.297 34.34 493 70.055 493ZM357.14 163.568c0-22.973 12.821-39.054 31.593-39.054 18.315 0 31.136 16.081 31.136 39.054 0 22.973-12.821 39.513-31.136 39.513-18.772 0-31.593-16.54-31.593-39.513Zm97.985 0c0-22.973 12.821-39.054 31.593-39.054 18.315 0 31.136 16.081 31.136 39.054 0 22.973-12.821 39.513-31.136 39.513-18.772 0-31.593-16.54-31.593-39.513Z" fill="#AB9FF2"></path></svg>
+              <span class="">Phantom</span>
+            </div>
+            <div class="wallet-option" data-wallet="metamask">
+              <img src="data:image/png;base64,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">
+              <span class="">Backpack</span>
+            </div>
+            <div class="wallet-option" data-wallet="metamask">
+              <img src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGxpbmVhckdyYWRpZW50IGlkPSJhIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmMxMGIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmYjNmMmUiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI2LjQ3ODM1IiB4Mj0iMzQuOTEwNyIgeGxpbms6aHJlZj0iI2EiIHkxPSI3LjkyIiB5Mj0iMzMuNjU5MyIvPjxyYWRpYWxHcmFkaWVudCBpZD0iYyIgY3g9IjAiIGN5PSIwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDQuOTkyMTg4MzIgMTIuMDYzODc5NjMgLTEyLjE4MTEzNjU1IDUuMDQwNzEwNzQgMjIuNTIwMiAyMC42MTgzKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHI9IjEiIHhsaW5rOmhyZWY9IiNhIi8+PHBhdGggZD0ibTI1LjE3MDggNDcuOTEwNGMuNTI1IDAgLjk1MDcuNDIxLjk1MDcuOTQwM3MtLjQyNTcuOTQwMi0uOTUwNy45NDAyLS45NTA3LS40MjA5LS45NTA3LS45NDAyLjQyNTctLjk0MDMuOTUwNy0uOTQwM3ptLTEuMDMyOC00NC45MTU2NWMuNDY0Ni4wMzgzNi44Mzk4LjM5MDQuOTAyNy44NDY4MWwxLjEzMDcgOC4yMTU3NGMuMzc5OCAyLjcxNDMgMy42NTM1IDMuODkwNCA1LjY3NDMgMi4wNDU5bDExLjMyOTEtMTAuMzExNThjLjI3MzMtLjI0ODczLjY5ODktLjIzMTQ5Ljk1MDcuMDM4NTEuMjMwOS4yNDc3Mi4yMzc5LjYyNjk3LjAxNjEuODgyNzdsLTkuODc5MSAxMS4zOTU4Yy0xLjgxODcgMi4wOTQyLS40NzY4IDUuMzY0MyAyLjI5NTYgNS41OTc4bDguNzE2OC44NDAzYy40MzQxLjA0MTguNzUxNy40MjM0LjcwOTMuODUyNC0uMDM0OS4zNTM3LS4zMDc0LjYzOTUtLjY2MjguNjk0OWwtOS4xNTk0IDEuNDMwMmMtMi42NTkzLjM2MjUtMy44NjM2IDMuNTExNy0yLjEzMzkgNS41NTc2bDMuMjIgMy43OTYxYy4yNTk0LjMwNTguMjE4OC43NjE1LS4wOTA4IDEuMDE3OC0uMjYyMi4yMTcyLS42NDE5LjIyNTYtLjkxMzguMDIwM2wtMy45Njk0LTIuOTk3OGMtMi4xNDIxLTEuNjEwOS01LjIyOTctLjI0MTctNS40NTYxIDIuNDI0M2wtLjg3NDcgMTAuMzk3NmMtLjAzNjIuNDI5NS0uNDE3OC43NDg3LS44NTI1LjcxMy0uMzY5LS4wMzAzLS42NjcxLS4zMDk3LS43MTcxLS42NzIxbC0xLjM4NzEtMTAuMDQzN2MtLjM3MTctMi43MTQ0LTMuNjQ1NC0zLjg5MDQtNS42NzQzLTIuMDQ1OWwtMTIuMDUxOTUgMTAuOTc0Yy0uMjQ5NDcuMjI3MS0uNjM4MDkuMjExNC0uODY4LS4wMzUtLjIxMDk0LS4yMjYyLS4yMTczNS0uNTcyNC0uMDE0OTMtLjgwNmwxMC41MTgxOC0xMi4xMzg1YzEuODE4Ny0yLjA5NDIuNDg0OS01LjM2NDQtMi4yODc2LTUuNTk3OGwtOC43MTg3Mi0uODQwNWMtLjQzNDEzLS4wNDE4LS43NTE3Mi0uNDIzNS0uNzA5MzYtLjg1MjQuMDM0OTMtLjM1MzcuMzA3MzktLjYzOTQuNjYyNy0uNjk1bDkuMTUzMzgtMS40Mjk5YzIuNjU5NC0uMzYyNSAzLjg3MTgtMy41MTE3IDIuMTQyMS01LjU1NzZsLTIuMTkyLTIuNTg0MWMtLjMyMTctLjM3OTItLjI3MTMtLjk0NDMuMTEyNi0xLjI2MjEuMzI1My0uMjY5NC43OTYzLS4yNzk3IDEuMTMzNC0uMDI0OWwyLjY5MTggMi4wMzQ3YzIuMTQyMSAxLjYxMDkgNS4yMjk3LjI0MTcgNS40NTYxLTIuNDI0M2wuNzI0MS04LjU1OTk4Yy4wNDU3LS41NDA4LjUyNjUtLjk0MjU3IDEuMDczOS0uODk3Mzd6bS0yMy4xODczMyAyMC40Mzk2NWMuNTI1MDQgMCAuOTUwNjcuNDIxLjk1MDY3Ljk0MDNzLS40MjU2My45NDAzLS45NTA2Ny45NDAzYy0uNTI1MDQxIDAtLjk1MDY3LS40MjEtLjk1MDY3LS45NDAzcy40MjU2MjktLjk0MDMuOTUwNjctLjk0MDN6bTQ3LjY3OTczLS45NTQ3Yy41MjUgMCAuOTUwNy40MjEuOTUwNy45NDAzcy0uNDI1Ny45NDAyLS45NTA3Ljk0MDItLjk1MDctLjQyMDktLjk1MDctLjk0MDIuNDI1Ny0uOTQwMy45NTA3LS45NDAzem0tMjQuNjI5Ni0yMi40Nzk3Yy41MjUgMCAuOTUwNi40MjA5NzMuOTUwNi45NDAyNyAwIC41MTkzLS40MjU2Ljk0MDI3LS45NTA2Ljk0MDI3LS41MjUxIDAtLjk1MDctLjQyMDk3LS45NTA3LS45NDAyNyAwLS41MTkyOTcuNDI1Ni0uOTQwMjcuOTUwNy0uOTQwMjd6IiBmaWxsPSJ1cmwoI2IpIi8+PHBhdGggZD0ibTI0LjU3MSAzMi43NzkyYzQuOTU5NiAwIDguOTgwMi0zLjk3NjUgOC45ODAyLTguODgxOSAwLTQuOTA1My00LjAyMDYtOC44ODE5LTguOTgwMi04Ljg4MTlzLTguOTgwMiAzLjk3NjYtOC45ODAyIDguODgxOWMwIDQuOTA1NCA0LjAyMDYgOC44ODE5IDguOTgwMiA4Ljg4MTl6IiBmaWxsPSJ1cmwoI2MpIi8+PC9zdmc+">
+              <span class="">Solflare</span>
+            </div>
+            <div class="wallet-option" data-wallet="metamask">
+              <img src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjMzIiB2aWV3Qm94PSIwIDAgMzUgMzMiIHdpZHRoPSIzNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjI1Ij48cGF0aCBkPSJtMzIuOTU4MiAxLTEzLjEzNDEgOS43MTgzIDIuNDQyNC01LjcyNzMxeiIgZmlsbD0iI2UxNzcyNiIgc3Ryb2tlPSIjZTE3NzI2Ii8+PGcgZmlsbD0iI2UyNzYyNSIgc3Ryb2tlPSIjZTI3NjI1Ij48cGF0aCBkPSJtMi42NjI5NiAxIDEzLjAxNzE0IDkuODA5LTIuMzI1NC01LjgxODAyeiIvPjxwYXRoIGQ9Im0yOC4yMjk1IDIzLjUzMzUtMy40OTQ3IDUuMzM4NiA3LjQ4MjkgMi4wNjAzIDIuMTQzNi03LjI4MjN6Ii8+PHBhdGggZD0ibTEuMjcyODEgMjMuNjUwMSAyLjEzMDU1IDcuMjgyMyA3LjQ2OTk0LTIuMDYwMy0zLjQ4MTY2LTUuMzM4NnoiLz48cGF0aCBkPSJtMTAuNDcwNiAxNC41MTQ5LTIuMDc4NiAzLjEzNTggNy40MDUuMzM2OS0uMjQ2OS03Ljk2OXoiLz48cGF0aCBkPSJtMjUuMTUwNSAxNC41MTQ5LTUuMTU3NS00LjU4NzA0LS4xNjg4IDguMDU5NzQgNy40MDQ5LS4zMzY5eiIvPjxwYXRoIGQ9Im0xMC44NzMzIDI4Ljg3MjEgNC40ODE5LTIuMTYzOS0zLjg1ODMtMy4wMDYyeiIvPjxwYXRoIGQ9Im0yMC4yNjU5IDI2LjcwODIgNC40Njg5IDIuMTYzOS0uNjEwNS01LjE3MDF6Ii8+PC9nPjxwYXRoIGQ9Im0yNC43MzQ4IDI4Ljg3MjEtNC40NjktMi4xNjM5LjM2MzggMi45MDI1LS4wMzkgMS4yMzF6IiBmaWxsPSIjZDViZmIyIiBzdHJva2U9IiNkNWJmYjIiLz48cGF0aCBkPSJtMTAuODczMiAyOC44NzIxIDQuMTU3MiAxLjk2OTYtLjAyNi0xLjIzMS4zNTA4LTIuOTAyNXoiIGZpbGw9IiNkNWJmYjIiIHN0cm9rZT0iI2Q1YmZiMiIvPjxwYXRoIGQ9Im0xNS4xMDg0IDIxLjc4NDItMy43MTU1LTEuMDg4NCAyLjYyNDMtMS4yMDUxeiIgZmlsbD0iIzIzMzQ0NyIgc3Ryb2tlPSIjMjMzNDQ3Ii8+PHBhdGggZD0ibTIwLjUxMjYgMjEuNzg0MiAxLjA5MTMtMi4yOTM1IDIuNjM3MiAxLjIwNTF6IiBmaWxsPSIjMjMzNDQ3IiBzdHJva2U9IiMyMzM0NDciLz48cGF0aCBkPSJtMTAuODczMyAyOC44NzIxLjY0OTUtNS4zMzg2LTQuMTMxMTcuMTE2N3oiIGZpbGw9IiNjYzYyMjgiIHN0cm9rZT0iI2NjNjIyOCIvPjxwYXRoIGQ9Im0yNC4wOTgyIDIzLjUzMzUuNjM2NiA1LjMzODYgMy40OTQ2LTUuMjIxOXoiIGZpbGw9IiNjYzYyMjgiIHN0cm9rZT0iI2NjNjIyOCIvPjxwYXRoIGQ9Im0yNy4yMjkxIDE3LjY1MDctNy40MDUuMzM2OS42ODg1IDMuNzk2NiAxLjA5MTMtMi4yOTM1IDIuNjM3MiAxLjIwNTF6IiBmaWxsPSIjY2M2MjI4IiBzdHJva2U9IiNjYzYyMjgiLz48cGF0aCBkPSJtMTEuMzkyOSAyMC42OTU4IDIuNjI0Mi0xLjIwNTEgMS4wOTEzIDIuMjkzNS42ODg1LTMuNzk2Ni03LjQwNDk1LS4zMzY5eiIgZmlsbD0iI2NjNjIyOCIgc3Ryb2tlPSIjY2M2MjI4Ii8+PHBhdGggZD0ibTguMzkyIDE3LjY1MDcgMy4xMDQ5IDYuMDUxMy0uMTAzOS0zLjAwNjJ6IiBmaWxsPSIjZTI3NTI1IiBzdHJva2U9IiNlMjc1MjUiLz48cGF0aCBkPSJtMjQuMjQxMiAyMC42OTU4LS4xMTY5IDMuMDA2MiAzLjEwNDktNi4wNTEzeiIgZmlsbD0iI2UyNzUyNSIgc3Ryb2tlPSIjZTI3NTI1Ii8+PHBhdGggZD0ibTE1Ljc5NyAxNy45ODc2LS42ODg2IDMuNzk2Ny44NzA0IDQuNDgzMy4xOTQ5LTUuOTA4N3oiIGZpbGw9IiNlMjc1MjUiIHN0cm9rZT0iI2UyNzUyNSIvPjxwYXRoIGQ9Im0xOS44MjQyIDE3Ljk4NzYtLjM2MzggMi4zNTg0LjE4MTkgNS45MjE2Ljg3MDQtNC40ODMzeiIgZmlsbD0iI2UyNzUyNSIgc3Ryb2tlPSIjZTI3NTI1Ii8+PHBhdGggZD0ibTIwLjUxMjcgMjEuNzg0Mi0uODcwNCA0LjQ4MzQuNjIzNi40NDA2IDMuODU4NC0zLjAwNjIuMTE2OS0zLjAwNjJ6IiBmaWxsPSIjZjU4NDFmIiBzdHJva2U9IiNmNTg0MWYiLz48cGF0aCBkPSJtMTEuMzkyOSAyMC42OTU4LjEwNCAzLjAwNjIgMy44NTgzIDMuMDA2Mi42MjM2LS40NDA2LS44NzA0LTQuNDgzNHoiIGZpbGw9IiNmNTg0MWYiIHN0cm9rZT0iI2Y1ODQxZiIvPjxwYXRoIGQ9Im0yMC41OTA2IDMwLjg0MTcuMDM5LTEuMjMxLS4zMzc4LS4yODUxaC00Ljk2MjZsLS4zMjQ4LjI4NTEuMDI2IDEuMjMxLTQuMTU3Mi0xLjk2OTYgMS40NTUxIDEuMTkyMSAyLjk0ODkgMi4wMzQ0aDUuMDUzNmwyLjk2Mi0yLjAzNDQgMS40NDItMS4xOTIxeiIgZmlsbD0iI2MwYWM5ZCIgc3Ryb2tlPSIjYzBhYzlkIi8+PHBhdGggZD0ibTIwLjI2NTkgMjYuNzA4Mi0uNjIzNi0uNDQwNmgtMy42NjM1bC0uNjIzNi40NDA2LS4zNTA4IDIuOTAyNS4zMjQ4LS4yODUxaDQuOTYyNmwuMzM3OC4yODUxeiIgZmlsbD0iIzE2MTYxNiIgc3Ryb2tlPSIjMTYxNjE2Ii8+PHBhdGggZD0ibTMzLjUxNjggMTEuMzUzMiAxLjEwNDMtNS4zNjQ0Ny0xLjY2MjktNC45ODg3My0xMi42OTIzIDkuMzk0NCA0Ljg4NDYgNC4xMjA1IDYuODk4MyAyLjAwODUgMS41Mi0xLjc3NTItLjY2MjYtLjQ3OTUgMS4wNTIzLS45NTg4LS44MDU0LS42MjIgMS4wNTIzLS44MDM0eiIgZmlsbD0iIzc2M2UxYSIgc3Ryb2tlPSIjNzYzZTFhIi8+PHBhdGggZD0ibTEgNS45ODg3MyAxLjExNzI0IDUuMzY0NDctLjcxNDUxLjUzMTMgMS4wNjUyNy44MDM0LS44MDU0NS42MjIgMS4wNTIyOC45NTg4LS42NjI1NS40Nzk1IDEuNTE5OTcgMS43NzUyIDYuODk4MzUtMi4wMDg1IDQuODg0Ni00LjEyMDUtMTIuNjkyMzMtOS4zOTQ0eiIgZmlsbD0iIzc2M2UxYSIgc3Ryb2tlPSIjNzYzZTFhIi8+PHBhdGggZD0ibTMyLjA0ODkgMTYuNTIzNC02Ljg5ODMtMi4wMDg1IDIuMDc4NiAzLjEzNTgtMy4xMDQ5IDYuMDUxMyA0LjEwNTItLjA1MTloNi4xMzE4eiIgZmlsbD0iI2Y1ODQxZiIgc3Ryb2tlPSIjZjU4NDFmIi8+PHBhdGggZD0ibTEwLjQ3MDUgMTQuNTE0OS02Ljg5ODI4IDIuMDA4NS0yLjI5OTQ0IDcuMTI2N2g2LjExODgzbDQuMTA1MTkuMDUxOS0zLjEwNDg3LTYuMDUxM3oiIGZpbGw9IiNmNTg0MWYiIHN0cm9rZT0iI2Y1ODQxZiIvPjxwYXRoIGQ9Im0xOS44MjQxIDE3Ljk4NzYuNDQxNy03LjU5MzIgMi4wMDA3LTUuNDAzNGgtOC45MTE5bDIuMDAwNiA1LjQwMzQuNDQxNyA3LjU5MzIuMTY4OSAyLjM4NDIuMDEzIDUuODk1OGgzLjY2MzVsLjAxMy01Ljg5NTh6IiBmaWxsPSIjZjU4NDFmIiBzdHJva2U9IiNmNTg0MWYiLz48L2c+PC9zdmc+">
+              <span class="">MetaMask</span>
+            </div>
+            <div class="wallet-option" data-wallet="metamask">
+              <img src="data:image/png;base64,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">              
+              <span class="">OKX Wallet</span>
+            </div>
+          </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script>
+    // Particles.js configuration
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#00ffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: false, anim: { enable: false } },
+        size: { value: 3, random: true, anim: { enable: false } },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#00ffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Tab switching logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const forms = document.querySelectorAll('.form-container');
+
+      // Sign Up Form Submission
+      const signupForm = document.querySelector('#signupForm form');
+      signupForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('signupUsername').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        
+        if (password !== confirmPassword) {
+          alert('Passwords do not match!');
+          return;
+        }
+        
+        try {
+          // This is a placeholder for actual blockchain integration
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          
+          // Generate a unique identifier based on user input
+          const userId = ethers.utils.id(username + email);
+          
+          // Sign the user ID to create a digital signature
+          const signature = await signer.signMessage(userId);
+          
+          console.log('User registered:', {
+            username,
+            email,
+            userId,
+            signature
+          });
+          
+          alert('GOD ID created successfully! Welcome to the blockchain universe.');
+        } catch (error) {
+          console.error('Error during registration:', error);
+          alert('An error occurred during registration. Please try again.');
+        }
+      });
+
+      // Login Form Submission
+      const loginForm = document.querySelector('#loginForm form');
+      loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const usernameOrEmail = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        try {
+          // This is a placeholder for actual login logic
+          // In a real application, you would verify credentials against your backend or blockchain
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          
+          // Generate a login challenge
+          const loginChallenge = ethers.utils.id('login_' + Date.now());
+          
+          // Sign the challenge
+          const signature = await signer.signMessage(loginChallenge);
+          
+          console.log('User logged in:', {
+            usernameOrEmail,
+            loginChallenge,
+            signature
+          });
+          
+          alert('Login successful! Welcome back to GOD ID.');
+        } catch (error) {
+          console.error('Error during login:', error);
+          alert('An error occurred during login. Please try again.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
