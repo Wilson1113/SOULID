@@ -118,7 +118,7 @@
     font-size: 1.4em;
     line-height: 1.6;
     margin-top: 20px;
-    max-width: 800px;
+    max-width: 850px;
     text-align: center;
     transform: translateZ(30px);
   }
@@ -362,8 +362,8 @@
   <div id="particles-js"></div>
   <header>
     <div class="container header-content">
-      <div class="logo">GODID</div>
-      <button class="connect-wallet">Connect Wallet</button>
+      <div class="logo">SOULID</div>
+      <button class="connect-wallet" id="wallet-address">Connect Wallet</button>  
     </div>
   </header>
   
@@ -375,8 +375,8 @@
           <div class="card">
             <div class="card-face front">
               <div class="card-header">
-                <span>GODID</span>
-                <span>Divine Identity</span>
+                <span>SOULID</span>
+                <span>Blockchain Identity</span>
               </div>
               <div class="card-content">
                 <h2>Crypto Sage</h2>
@@ -407,28 +407,28 @@
         </div>
       </div>
       <div class="hero-content container">
-        <h1>GODID: Divine Blockchain Identity</h1>
+        <h1>SOULID: Blockchain Identity</h1>
         
-        <p class="intro">Ascend beyond mortal limitations. GODID forges your eternal digital presence, capturing every moment of your crypto odyssey in an immutable, divine chronicle.</p>
+        <p class="intro">SOUlID is your virtual blockchain identity card, storing your entire on-chain history and verifying your unique identity through biometric data. Start your new life on the blockchain with SOUlID.</p>
         
         <div class="cta">
-          <a href="https://godid.io/ascend" class="cta-button">Claim Your Divinity</a>
+          <a href="https://godid.io/ascend" class="cta-button">Claim Your Identity Card</a>
         </div>
       </div>
     </section>
 
     <section class="features container">
       <div class="feature">
-        <h3>Eternal Chronicle</h3>
-        <p>Your entire blockchain journey, immortalized on-chain. Every project, every role, every achievement.</p>
+        <h3>Your Blockchain Footprint</h3>
+        <p>Securely store your complete blockchain activity on-chain, reflecting your true contributions and roles within the blockchain community.</p>
       </div>
       <div class="feature">
-        <h3>Divine Identity</h3>
-        <p>More than a wallet address. Forge a true digital persona that reflects your crypto divinity.</p>
+        <h3>One Identity, One Blockchain</h3>
+        <p>Ensure your unique identity with biometric verification, preventing Sybil attacks and enhancing security across blockchain platforms.</p>
       </div>
       <div class="feature">
-        <h3>Celestial Insights</h3>
-        <p>Gain profound understanding of your blockchain presence and influence across the crypto cosmos.</p>
+        <h3>Universal Blockchain Integration</h3>
+        <p>Use your SOULID for instant and secure sign-up across various crypto platforms, with reliability ensured by smart contracts.</p>
       </div>
     </section>
   </main>
@@ -525,8 +525,27 @@
       "retina_detect": true
     });
 
-    document.querySelector('.connect-wallet').addEventListener('click', function() {
-      window.location.href = "connect.html";
+    document.querySelector('.connect-wallet').addEventListener('click', async() => {
+      if (localStorage.getItem('walletAddress')) {
+        localStorage.removeItem('walletAddress');
+        try {
+          await window.solana.disconnect();
+          
+          document.getElementById('wallet-address').innerText = `Connecct Wallet  `;
+          
+        } catch (err) {
+          console.error('Failed to disconnect:', err);
+        }
+      } else {
+        window.location.href = "connect.html";
+      }
+      });
+    window.addEventListener('load', () => {
+      const walletAddress = localStorage.getItem('walletAddress');
+      if (walletAddress) {
+        const partialAddress = `${walletAddress.slice(0, 10)}...`;
+        document.getElementById('wallet-address').innerText = `Connected: ${partialAddress}`;
+      }
     });
   </script>
 </body>
