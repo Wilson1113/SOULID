@@ -125,31 +125,6 @@
     transform: translateZ(30px);
   }
 
-  .cta {
-    margin-top: 40px;
-    transform: translateZ(40px);
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 15px 40px;
-    font-size: 1.4em;
-    text-decoration: none;
-    color: var(--background-color);
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .cta-button:hover {
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
-    transform: translateY(-3px) scale(1.05);
-  }
-
   #particles-js {
     position: fixed;
     width: 100%;
@@ -240,13 +215,13 @@
                 <span>Blockchain Identity</span>
               </div>
               <div class="card-content">
-                <h2>Crypto Sage</h2>
-                <h3>CryptoExpert@gmail.com</h3>
-                <p>Blockchain Veteran</p>
+                <h2 id="card-name"></h2>
+                <h3 id="card-email"></h3>
+                <p id="card-define"></p>
               </div>
               <div class="card-footer">
-                <span>Since: 2017</span>
-                <span>Projects: 42</span>
+                <span>Since: ????</span>
+                <span>Projects: 0</span>
               </div>
             </div>
             <div class="card-face back">
@@ -255,14 +230,11 @@
               </div>
               <div class="card-content">
                 <ul>
-                  <li>DeFi Pioneer</li>
-                  <li>NFT Collector</li>
-                  <li>DAO Contributor</li>
-                  <li>Solana Developer</li>
+                  <li>Not Acievement yet</li>
                 </ul>
               </div>
               <div class="card-footer">
-                <span>Rank: Experienced</span>
+                <span>Rank: Beginner</span>
               </div>
             </div>
           </div>
@@ -273,9 +245,6 @@
         
         <p class="intro">SOUlID is your virtual blockchain identity card, storing your entire on-chain history and verifying your unique identity through biometric data. Start your new life on the blockchain with SOUlID.</p>
         
-        <div class="cta">
-          <a href="mint.html" class="cta-button">Claim Your SOULID</a>
-        </div>
       </div>
     </section>
 
@@ -404,6 +373,11 @@
       });
     window.addEventListener('load', () => {
       const walletAddress = localStorage.getItem('walletAddress');
+
+      document.getElementById('card-name').textContent = localStorage.getItem('card-name');
+      document.getElementById('card-email').textContent = localStorage.getItem('card-email');
+      document.getElementById('card-define').textContent = localStorage.getItem('card-define');
+
       if (walletAddress) {
         const partialAddress = `${walletAddress.slice(0, 10)}...`;
         document.getElementById('wallet-address').innerText = `Connected: ${partialAddress}`;

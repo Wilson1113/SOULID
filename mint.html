@@ -1,0 +1,340 @@
+<html>
+  <head><link rel="stylesheet" href="card.css"></head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claim Your SOULID</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+  :root {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --background-color: #0a0a20;
+    --text-color: #e0e0ff;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 100%;
+    overflow-x: hidden;
+    perspective: 1000px;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+  }
+
+  .claim-form {
+    margin-right: 7rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 40px;
+    width: 35%;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+  }
+
+  h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+
+  .form-group {
+    margin-bottom: 25px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--primary-color);
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+  }
+
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+  }
+
+  .submit-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    transform: translateY(-3px);
+  }
+
+
+  @media (max-width: 768px) {
+    .feature {
+      width: 100%;
+    }
+    
+    .hologram-container {
+      transform: translateX(-50%) scale(0.7);
+      top: 20px;
+    }
+  }
+
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  @media (max-width: 1200px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+      padding-top: 100px;
+    }
+
+    .claim-form, .card-container {
+      width: 100%;
+      margin-bottom: 50px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  .hologram-container {
+    margin-left: 7rem;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    z-index: 0;
+    perspective: 1000px;
+  }
+</style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <form class="claim-form">
+      <h1>Claim Your SOULID</h1>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name"placeholder="Your virtual name in Crypto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" placeholder="Your Email for Crypto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="define">Define yourself</label>
+        <input id="define" placeholder="Blockchain Learner" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Mint SOULID NFT</button>
+    </form>
+
+    <div class="hologram-container">
+        <div class="card-container">
+          <div class="card">
+            <div class="card-face front">
+              <div class="card-header">
+                <span>SOULID</span>
+                <span>Blockchain Identity</span>
+              </div>
+              <div class="card-content">
+                <h2 id="card-name">CryptoNovice</h2>
+                <h3 id="card-email">cryptonovice@gmail.com</h3>
+                <p id="card-define">Blockchain Beginner</p>
+              </div>
+              <div class="card-footer">
+                <span>Since: ????</span>
+                <span>Projects: 0</span>
+              </div>
+            </div>
+            <div class="card-face back">
+              <div class="card-header">
+                <span>Achievements</span>
+              </div>
+              <div class="card-content">
+                <ul>
+                  <li>Not Acievement yet</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span>Rank: Beginner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": ["#00ffff", "#ff00ff"]
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 4,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": true,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 100,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Function to update card content
+    function updateCard() {
+      document.getElementById('card-name').textContent = document.getElementById('name').value || 'CryptoNovice';
+      document.getElementById('card-email').textContent = document.getElementById('email').value || 'cryptonovice@gmail.com';
+      document.getElementById('card-define').textContent = document.getElementById('define').value || 'Blockchain beginner';
+    }
+
+    // Add event listeners to form inputs
+    document.getElementById('name').addEventListener('input', updateCard);
+    document.getElementById('email').addEventListener('input', updateCard);
+    document.getElementById('define').addEventListener('input', updateCard);
+
+    document.querySelector('.claim-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      localStorage.setItem('card-name', document.getElementById('card-name').textContent);
+      localStorage.setItem('card-email', document.getElementById('card-email').textContent);
+      localStorage.setItem('card-define', document.getElementById('card-define').textContent);
+      window.location.href = "index2.html";
+    });
+  </script>
+</body>
+</html>
