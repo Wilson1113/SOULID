@@ -93,6 +93,19 @@
     font-size: 1em;
   }
 
+  .input {
+    width: 8rem;
+    padding: 12px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+  }
+
+  .input img {
+    width: 8rem;
+  }
+
   .submit-btn {
     display: block;
     width: 100%;
@@ -183,6 +196,11 @@
       <div class="form-group">
         <label for="define">Define yourself</label>
         <input id="define" placeholder="Blockchain Learner" required>
+      </div>
+
+      <div class="form-group">
+        <label for="qr">Fingerprint</label>
+        <div class="input" id="qr"><img src="qrcode.png" alt="Description of image"></div>
       </div>
 
       <button type="submit" class="submit-btn">Mint SOULID NFT</button>
@@ -315,12 +333,12 @@
       },
       "retina_detect": true
     });
-
     // Function to update card content
     function updateCard() {
       document.getElementById('card-name').textContent = document.getElementById('name').value || 'CryptoNovice';
       document.getElementById('card-email').textContent = document.getElementById('email').value || 'cryptonovice@gmail.com';
       document.getElementById('card-define').textContent = document.getElementById('define').value || 'Blockchain beginner';
+      
     }
 
     // Add event listeners to form inputs
