@@ -61,6 +61,14 @@
       text-align: center;
     }
 
+    .card-content ul{
+      text-align: left;
+    }
+
+    .card-content li{
+      margin-top: 10px;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
       50% { transform: translateY(-20px) rotateX(5deg) rotateY(5deg); }

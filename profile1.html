@@ -1,0 +1,503 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOULID: Blockchain Identity - Profile</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Orbitron:wght@400;700&display=swap');
+  
+  :root {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --tertiary-color: #ffff00;
+    --background-color: #060618;
+    --text-color: #e0e0ff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --hate-color: #ff4500;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 100%;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 30%);
+    background-attachment: fixed;
+  }
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 225px 1fr 300px;
+    gap: 20px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 130px auto 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 225px 1fr 300px;
+    gap: 20px;
+  }
+
+  header {
+    background: rgba(10, 10, 32, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+  } 
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(255, 0, 255, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+  .connect-wallet {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .connect-wallet:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    transform: scale(1.05);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .nav-link::before, .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .nav-link::before {
+    left: 50%;
+    background: linear-gradient(to right, transparent, var(--primary-color));
+  }
+
+  .nav-link::after {
+    right: 50%;
+    background: linear-gradient(to left, transparent, var(--primary-color));
+  }
+
+  .nav-link:hover::before, .nav-link:hover::after {
+    width: 50%;
+    opacity: 1;
+  }
+
+  .nav-link:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+  }
+
+  main {
+    padding: 40px 0;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+  }
+
+  .profile-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    margin-bottom: 15px;
+  }
+
+  .profile-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .profile-headline {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+
+  .profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    font-size: 0.9em;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .section-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+  }
+
+  .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-tag {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+  }
+
+  .skill-tag:hover {
+    background: rgba(0, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+
+  .experience-item, .education-item {
+    margin-bottom: 20px;
+  }
+
+  .experience-item h3, .education-item h3 {
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+  }
+
+  .experience-item p, .education-item p {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+
+  .identity-card h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--tertiary-color);
+    text-shadow: 0 0 10px var(--tertiary-color);
+  }
+
+  .identity-info {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+
+  .qr-code {
+    width: 100px;
+    height: 100px;
+    margin: 15px auto;
+    background: white;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .right-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+  }
+
+  .action-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .action-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .action-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    transform: scale(1.05);
+  }
+
+  .hate-btn {
+    background: linear-gradient(45deg, var(--hate-color), #ff8c00);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar, .right-sidebar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .connect-wallet {
+      margin-top: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">SOULID</div>
+      <nav class="nav-links">
+        <a href="index2.html" class="nav-link">Home</a>
+        <a href="index2.html" class="nav-link">Search</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="project.html" class="nav-link">Projects</a>
+      </nav>
+      <button class="connect-wallet" id="wallet-address">Connect Wallet</button>  
+    </div>
+  </header>
+  
+  <main class="container">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <img src="avatar1.png" alt="Profile picture" class="profile-picture">
+        <h2 class="profile-name">Satoshi Nakamoto</h2>
+        <p class="profile-headline">Blockchain Visionary | Cryptocurrency Pioneer</p>
+        <p>Location: Decentralized Metaverse</p>
+        <p>SoulID: 000000000000001</p>
+        <div class="profile-stats">
+          <div>
+            <strong>1M+</strong>
+            <div>Followers</div>
+          </div>
+          <div>
+            <strong>1000</strong>
+            <div>Haters</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <section class="section-card">
+        <h2 class="section-title">About</h2>
+        <p>Mysterious figure credited with creating Bitcoin, the first decentralized cryptocurrency. The identity of Satoshi Nakamoto remains unknown, and it’s unclear whether the name represents an individual or a group of people.</p>
+      </section>
+
+      <section class="section-card">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-item">
+          <h3>Total Transaction: 1</h3>
+          <h3>1st Transaction: Jan 2009</h3>
+          <h3>Wallet Age: 15 Years</h3>
+          <h2>On Chain Experience: </h2>
+        </div>
+        <div class="experience-item">
+          <h3>Disappear</h3>
+          <p>In forest | 2009 - 2024</p>
+          <p>Did Genesis Block Reward, First Bitcoin Transaction and mining. Then, disappear.</p>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <h3>Teach himself</h3>
+          <p>himself</p>
+          <p>Bitcoin"</p>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h2 class="section-title">Skills</h2>
+        <div class="skill-tags">
+          <span class="skill-tag">Blockchain</span>
+          <span class="skill-tag">Cryptography</span>
+          <span class="skill-tag">Distributed Systems</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">P2P Networks</span>
+          <span class="skill-tag">Consensus Algorithms</span>
+          <span class="skill-tag">Smart Contracts</span>
+          <span class="skill-tag">DeFi</span>
+        </div>
+      </section>
+    </div>
+
+    <aside class="right-sidebar">
+      <div class="action-card">
+        <h2>Actions</h2>
+        <button id="followBtn" class="action-btn">Follow</button>
+        <button id="hateBtn" class="action-btn hate-btn">Hate</button>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    // Connect wallet button functionality
+    document.querySelector('.connect-wallet').addEventListener('click', function() {
+      alert('Wallet connection feature coming soon! Your divine journey awaits.');
+    });
+
+    // Add subtle animation to skill tags
+    const skillTags = document.querySelectorAll('.skill-tag');
+    skillTags.forEach(tag => {
+      tag.addEventListener('mouseover', function() {
+        this.style.transform = 'scale(1.1) rotate(5deg)';
+        this.style.boxShadow = '0 5px 15px rgba(0, 255, 255, 0.3)';
+      });
+      tag.addEventListener('mouseout', function() {
+        this.style.transform = 'scale(1) rotate(0deg)';
+        this.style.boxShadow = 'none';
+      });
+    });
+
+    // Add parallax effect to section cards
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('.section-card');
+      sections.forEach((section, index) => {
+        const scrollPosition = window.pageYOffset;
+        section.style.transform = `translateY(${scrollPosition * 0.02 * (index + 1)}px)`;
+      });
+    });
+    window.addEventListener('load', () => {
+      const walletAddress = localStorage.getItem('walletAddress');
+      if (walletAddress) {
+        const partialAddress = `${walletAddress.slice(0, 10)}...`;
+        document.getElementById('wallet-address').innerText = `Connected: ${partialAddress}`;
+      }
+    });
+
+    // Follow button functionality
+    const followBtn = document.getElementById('followBtn');
+    let isFollowing = false;
+
+    followBtn.addEventListener('click', function() {
+      isFollowing = !isFollowing;
+      if (isFollowing) {
+        this.textContent = 'Unfollow';
+        this.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+        alert('You are now following Satoshi Nakamoto!');
+      } else {
+        this.textContent = 'Follow';
+        this.style.background = 'linear-gradient(45deg, var(--primary-color), var(--secondary-color))';
+        alert('You have unfollowed Satoshi Nakamoto.');
+      }
+    });
+
+    // Hate button functionality
+    const hateBtn = document.getElementById('hateBtn');
+    let isHating = false;
+
+    hateBtn.addEventListener('click', function() {
+      isHating = !isHating;
+      if (isHating) {
+        this.textContent = 'Unhate';
+        this.style.background = 'linear-gradient(45deg, #8B0000, #FF4500)';
+        alert('You now hate Satoshi Nakamoto. Remember, hate is a strong emotion.');
+      } else {
+        this.textContent = 'Hate';
+        this.style.background = 'linear-gradient(45deg, var(--hate-color), #ff8c00)';
+        alert('You no longer hate Satoshi Nakamoto.');
+      }
+    });
+  </script>
+</body>
+</html>
