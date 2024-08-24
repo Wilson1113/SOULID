@@ -1,0 +1,424 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOULID: Blockchain Identity Profile - Partners</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Orbitron:wght@400;700&display=swap');
+
+  :root {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --tertiary-color: #ffff00;
+    --background-color: #060618;
+    --text-color: #e0e0ff;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 100%;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 30%);
+    background-attachment: fixed;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  header {
+    background: rgba(10, 10, 32, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+  } 
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(255, 0, 255, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+  .connect-wallet {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .connect-wallet:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    transform: scale(1.05);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .nav-link::before, .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .nav-link::before {
+    left: 50%;
+    background: linear-gradient(to right, transparent, var(--primary-color));
+  }
+
+  .nav-link::after {
+    right: 50%;
+    background: linear-gradient(to left, transparent, var(--primary-color));
+  }
+
+  .nav-link:hover::before, .nav-link:hover::after {
+    width: 50%;
+    opacity: 1;
+  }
+
+  .nav-link:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+  }
+
+  main {
+    margin-top: 100px;
+    padding: 40px 0;
+  }
+
+  .partners-hero {
+    text-align: center;
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    border-radius: 20px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .partners-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    position: relative;
+    z-index: 1;
+  }
+
+  .search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+
+  .search-input:focus {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1.5em;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .partner-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .partner-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease-out;
+  }
+
+  .partner-card:hover::before {
+    transform: scale(1);
+  }
+
+  .partner-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+  }
+
+  .partner-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: var(--primary-color);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .partner-logo::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    20% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .partner-name {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .partner-description {
+    font-size: 0.9em;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .connect-wallet {
+      margin-top: 10px;
+    }
+
+    .partners-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="logo">SOULID</div>
+      <nav class="nav-links">
+        <a href="index2.html" class="nav-link">Home</a>
+        <a href="https://godid.io/profile" class="nav-link">Profile</a>
+        <a href="project.html" class="nav-link">Projects</a>
+      </nav>
+      <button class="connect-wallet">Connect Wallet</button>
+    </div>
+  </header>
+  
+  <main class="container">
+    <section class="partners-hero">
+      <h1>Our Partners’ Projects</h1>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search partners...">
+        <span class="search-icon">🔍</span>
+      </div>
+    </section>
+
+    <section class="partners-grid">
+      <div class="partner-card">
+        <img src="jupiter-ag-jup-logo.png" class="partner-logo"></img>
+        <h3 class="partner-name">Jupiter</h3>
+        <p class="partner-description">Streamlining Token Swaps on Solana</p>
+      </div>
+      <div class="partner-card">
+        <img src="orca.png" class="partner-logo"></img>
+        <h3 class="partner-name">Orca</h3>
+        <p class="partner-description">Concentrated Liquidity AMM on the Solana Network</p>
+      </div>
+      <div class="partner-card">
+        <img src="drift.jpeg" class="partner-logo"></img>
+        <h3 class="partner-name">Drift</h3>
+        <p class="partner-description">Trade Perpetuals With up to 20X Leverage</p>
+      </div>
+      <div class="partner-card">
+        <img src="solend.png" class="partner-logo"></img>
+        <h3 class="partner-name">Solend</h3>
+        <p class="partner-description">Lend and Borrow Crypto Assets on the Solana Network</p>
+      </div>  
+    </section>
+  </main>
+
+  <script>
+    // Connect wallet button functionality
+    document.querySelector('.connect-wallet').addEventListener('click', function() {
+      alert('Wallet connection feature coming soon! Your divine journey awaits.');
+    });
+
+    // Enhanced search functionality with highlighting
+    const searchInput = document.querySelector('.search-input');
+    const partnerCards = document.querySelectorAll('.partner-card');
+
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      partnerCards.forEach(card => {
+        const partnerName = card.querySelector('.partner-name').textContent.toLowerCase();
+        const partnerDescription = card.querySelector('.partner-description').textContent.toLowerCase();
+        if (partnerName.includes(searchTerm) || partnerDescription.includes(searchTerm)) {
+          card.style.display = 'block';
+          highlightText(card, searchTerm);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    function highlightText(card, term) {
+      const name = card.querySelector('.partner-name');
+      const description = card.querySelector('.partner-description');
+      name.innerHTML = name.textContent.replace(new RegExp(term, 'gi'), match => `<mark>${match}</mark>`);
+      description.innerHTML = description.textContent.replace(new RegExp(term, 'gi'), match => `<mark>${match}</mark>`);
+    }
+
+    // Add enhanced hover effects to partner cards
+    partnerCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-15px) scale(1.05)';
+        this.style.boxShadow = '0 15px 30px rgba(0, 255, 255, 0.3)';
+        this.style.background = 'rgba(255, 255, 255, 0.1)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        this.style.boxShadow = 'none';
+        this.style.background = 'rgba(255, 255, 255, 0.05)';
+      });
+    });
+
+    // Add parallax effect to partners hero section
+    window.addEventListener('scroll', function() {
+      const hero = document.querySelector('.partners-hero');
+      const scrollPosition = window.pageYOffset;
+      hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+    });
+
+    // Add subtle animation to partner logos
+    const partnerLogos = document.querySelectorAll('.partner-logo');
+    partnerLogos.forEach(logo => {
+      logo.addEventListener('mouseover', function() {
+        this.style.transform = 'rotate(360deg) scale(1.1)';
+        this.style.transition = 'all 0.5s ease';
+      });
+      logo.addEventListener('mouseout', function() {
+        this.style.transform = 'rotate(0deg) scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>
